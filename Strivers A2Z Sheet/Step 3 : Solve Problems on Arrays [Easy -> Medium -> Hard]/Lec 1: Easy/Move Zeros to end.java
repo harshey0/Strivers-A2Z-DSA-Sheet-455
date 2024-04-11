@@ -7,13 +7,12 @@ public class Solution {
     {
         if(a[i] !=0)
         {
-            a[c2]=a[i];
+            int temp =a[i];
+            
+            a[i]=0;
+            a[c2]=temp;
             c2++;
         }
-    }
-    for(int i=c2;i<a.length;i++)
-    {
-        a[i]=0;
     }
     return a;
 }
