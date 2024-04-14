@@ -5,11 +5,8 @@ public class Solution {
         // Write your code here.
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int key : arr) {
-            map.put(key, 0);
-        }
-        for( int key :arr)
-        {
-            map.put(key, map.get(key) + 1);
+            int value = map.getOrDefault(arr[i], 0);
+            map.put(arr[i], value + 1);
 
         }
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) 
