@@ -1,3 +1,4 @@
+// CODESTUDIO 
 public class Solution {
     public static int[] alternateNumbers(int []a) {
         // Write your code here.
