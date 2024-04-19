@@ -5,14 +5,13 @@ public class Solution {
         // Write your code here.
         ArrayList <Integer> ans = new ArrayList<>() ;
 
-        int max=0;
+        int max=a[a.length-1]-1;
 
         for (int x=a.length-1;x>=0;x--)
         {
             if(a[x]>max)
-            ans.add(a[x]);
+           { ans.add(a[x]);max=a[x];}
           
-            max = Math.max(max,a[x]);
         }
         return ans;
     }
