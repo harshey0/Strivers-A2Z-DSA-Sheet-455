@@ -1,14 +1,13 @@
-// CODESTUDIO 
-public class Solution {
-    public static int removeDuplicates(int[] arr,int n) {
-        // Write your code here.
-        int c=0;
-        for(int i=1;i<n;i++)
+class Solution {
+    public int removeDuplicates(int[] nums) {
+          int c=0;
+        for(int i=1;i<nums.length;i++)
         {
-            if(arr[i]!=arr[c])
-            {c++;arr[c]=arr[i];}
+            if(nums[i]!=nums[c])
+            {c++;nums[c]=nums[i];}
                 
         }
         return c+1;
     }
+    
 }

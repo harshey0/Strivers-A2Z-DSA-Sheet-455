@@ -1,12 +1,9 @@
-// CODESTUDIO 
-import java.util.*;
-public class Solution {
-    public static int getSingleElement(int []arr){
-        // Write your code here.
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int key : arr) {
-            int value = map.getOrDefault(arr[i], 0);
-            map.put(arr[i], value + 1);
+class Solution {
+    public int singleNumber(int[] nums) {
+          HashMap<Integer, Integer> map = new HashMap<>();
+        for (int key : nums) {
+            int value = map.getOrDefault(key, 0);
+            map.put(key, value + 1);
 
         }
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) 
@@ -14,4 +11,5 @@ public class Solution {
             return entry.getKey();
             return 0;
     }
+    
 }

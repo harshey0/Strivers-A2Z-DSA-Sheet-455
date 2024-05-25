@@ -1,27 +1,23 @@
-// CODESTUDIO 
-import java.util.* ;
-import java.io.*; 
-public class Solution {
-	public static int getLongestSubarray(int []nums, int k) {
-		// Write your code here.
-		int max=0,sum=0;
-		int n=nums.length;
-		HashMap <Integer,Integer> map= new HashMap<>();
-		for(int x=0;x<n;x++)
-		{
-			sum=sum+nums[x];
-			int remain = sum-k;
-			if(sum == k)
-			max=Math.max(max,x+1);
-			
-			if(map.containsKey(remain))
-			{
-				int len = x-map.get(remain);
-				max=Math.max(max,len);
-			}
-			if(!map.containsKey(sum))
-			map.put(sum,x);
-		}
-		return max;
-	}
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+        //Complete the function
+ 
+ int sum=0,ans=0;
+        HashMap <Integer,Integer> map= new HashMap();
+        for(int x=0;x<N;x++)
+        {
+          sum+=A[x];
+          int rem = sum-K;
+          if( sum==K)
+          ans = Math.max(ans,x+1);
+          if(map.containsKey(rem))
+          ans=Math.max(ans,x-map.get(rem));
+          if(!map.containsKey(sum))
+          map.put(sum,x);
+        }
+        return ans;
+    }
 }

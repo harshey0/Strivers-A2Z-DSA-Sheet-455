@@ -1,12 +1,20 @@
-// CODESTUDIO 
-public class Solution {
-    public static int isSorted(int n, int []a) {
-        // Write your code here.
-        for ( int i =1;i<n;i++)
+class Solution {
+    public boolean check(int[] nums) {
+        int p=0;
+         for ( int i =1;i<nums.length;i++)
         {
-            if(a[i]<a[i-1])
-            return 0;
+            if(p==1)
+            {
+                if(nums[i-1]>nums[i])
+            return false;}
+            else
+            {if(nums[i-1]>nums[i])
+            {p=1;
+            if(nums[nums.length-1]>nums[0])
+            return false;}
+            }
         }
-        return 1;
+        return true;
     }
+    
 }

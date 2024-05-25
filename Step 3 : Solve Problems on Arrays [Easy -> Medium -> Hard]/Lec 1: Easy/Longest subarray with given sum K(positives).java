@@ -1,53 +1,22 @@
-// CODESTUDIO 
-
-
-// public class Solution {
-//     public static int longestSubarrayWithSumK(int []a, long k) {
-//         // Write your code here
-//          int answ=0;
-//         for (int i =0;i<a.length;i++)
-//         {
-//             int s=0;
-//             for (int y=i;y<a.length;y++)
-//             {
-                 
-//                 s+=a[y];
-//                 if(s==k)
-//                 {
-//                     answ= Math.max(answ,(y-i+1));
-                   
-//                 }
-//                 if(s>k)
-//                 break;
-//             }
-//         }
-//         return answ;
-//     }
-// }
-
-public class Solution {
-    public static int longestSubarrayWithSumK(int []a, long k) {
-        // Write your code here
-         int left=0,answ=0;
-        
-            long s=0;
-            for (int y=0;y<a.length;y++)
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int lenOfLongSubarr (int A[], int N, int K) {
+        //Complete the function
+        int a=0,sum=0,ans=0;
+        for(int x=0;x<N;x++)
+        {
+            sum+=A[x];
+            if(sum==K)
+            ans=Math.max(x-a+1,ans);
+            if(sum>K)
+            while(sum>K&&a<=x)
             {
-                  s+=a[y];
-                 while(s>k&& left<=y)
-                 {
-                     s-=a[left];
-                     left++;
-                 }
-            
-                if(s==k)
-                {
-                    answ= Math.max(answ,(y-left+1));
-                   
-                }
-              
-             
+                sum-=A[a];
+                a++;
+            }
         }
-        return answ;
+        return ans;
     }
 }

@@ -1,13 +1,15 @@
-// CODESTUDIO 
-import java.util.*;
-public class Solution {
-    public static int linearSearch(int n, int num, int []arr){
-        // Write your code here.
-        for(int x=0;x<n;x++)
+class Solution{
+    static int searchInSorted(int arr[], int N, int K)
+    {
+        
+        // Your code here
+         for(int x=0;x<N;x++)
         {
-            if(arr[x]==num)
-            return x;
+            if(arr[x]==K)
+            return 1;
+            if(arr[x]>K)
+            return -1;
         }
-        return -1;
+            return -1;
     }
 }

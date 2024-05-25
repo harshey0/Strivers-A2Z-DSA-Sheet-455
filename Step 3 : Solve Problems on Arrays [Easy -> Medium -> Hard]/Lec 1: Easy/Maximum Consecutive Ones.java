@@ -1,21 +1,17 @@
-// CODESTUDIO 
-public class Solution {
-    public static int traffic(int n, int m, int []vehicle) {
-        // Write your code here.
-        for(int i=n;i>m+1;i--)
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int c=0;int ans=0;
+        for(int x=0;x<nums.length;x++)
         {
-            for(int x=0;x<n+1-i;x++)
+            if(nums[x]==1)
+            c++;
+            else
             {
-                int c=0;
-                for(int y=x;y<x+i;y++)
-                {
-                    if(vehicle[y]==0)
-                    c++;
-                }
-                if(c<=m)
-                return i;
+                ans = Math.max(c,ans);
+                c=0;
             }
         }
-        return m;
+        ans = Math.max(c,ans);
+        return ans;
     }
 }
