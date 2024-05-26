@@ -1,17 +1,19 @@
-// CODESTUDIO 
-
-public class Solution {
-    public static String read(int n, int []book, int target){
-        // Write your code here.
-        for(int i =0;i<n;i++)
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap <Integer,Integer> map = new HashMap();
+        int []a= new int[2];
+        map.put(nums[0],0);
+        for(int x=1;x<nums.length;x++)
         {
-            int c=book[i];
-            for(int y=i+1;y<n;y++)
-            {
-                if(c+book[y]==target)
-                return "YES";
-            }
+        if(map.containsKey(target-nums[x]))
+        {
+            a[0]=map.get(target-nums[x]);
+            a[1]=x;
+            return a;
         }
-        return "NO";
+        else
+        map.put(nums[x],x);
+        }
+        return a;
     }
 }

@@ -1,26 +1,18 @@
-// CODESTUDIO 
-import java.util.* ;
-import java.io.*; 
-public class Solution {
-    public static int findAllSubarraysWithGivenSum(int arr[], int s) {
-        // Write your code here.    
-        int left=0;int sum=0,c=0;
-        for(int x=0;x<arr.length;x++)
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        
+        int c=0,sum=0;
+        HashMap <Integer,Integer> map = new HashMap();
+        for(int x=0;x<nums.length;x++)
         {
-            sum+=arr[x];
-            
-            if(sum>s)
-            {
-                while(sum>s && left<arr.length)
-                {
-                    sum-=arr[left];
-                    left++;
-                }
-            }
-            if(sum==s)
+            sum+=nums[x];
+            if (sum==k)
             c++;
-          
+            int rem=sum-k;
+            if(map.containsKey(rem))
+            c+=map.get(rem);
+            map.put(sum,1+map.getOrDefault(sum,0));
         }
-          return c;
+        return c;
     }
 }

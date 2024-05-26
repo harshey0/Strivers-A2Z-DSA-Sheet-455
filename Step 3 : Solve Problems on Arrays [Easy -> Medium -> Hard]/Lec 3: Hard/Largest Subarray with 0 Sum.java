@@ -1,21 +1,20 @@
-// CODESTUDIO 
-
-import java.util.*;
-public class Solution {
-    public static int getLongestZeroSumSubarrayLength(int []arr){
-        // Write your code here.
-        HashMap <Integer,Integer> map = new HashMap<>();
-        int s=0,c=0;
-        for(int x=0;x<arr.length;x++)
+class GfG
+{
+    int maxLen(int arr[], int n)
+    {
+        // Your code here
+ int sum=0,ans=0;
+        HashMap <Integer,Integer> map= new HashMap();
+        for(int x=0;x<n;x++)
         {
-            s+=arr[x];
-            int rem = s;
-            if(s==0)
-            c= Math.max(c,x+1);
-            else if(map.containsKey(rem))
-            c=Math.max(c,x-map.get(rem));
-            else map.put(s,x);
+          sum+=arr[x];
+          if( sum==0)
+          ans = Math.max(ans,x+1);
+          if(map.containsKey(sum))
+          ans=Math.max(ans,x-map.get(sum));
+          if(!map.containsKey(sum))
+          map.put(sum,x);
         }
-        return c;
+        return ans;
     }
 }

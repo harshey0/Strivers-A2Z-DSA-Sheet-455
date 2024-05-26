@@ -1,27 +1,23 @@
-// CODESTUDIO 
-import java.util.* ;
-import java.io.*; 
-public class Solution {
-    public static void sortArray(ArrayList<Integer> arr, int n) {
-        // Write your code here.
+class Solution {
+    public void sortColors(int[] nums) {
 
-        HashMap<Integer,Integer> map = new HashMap<>();
-        map.put(0,0);
-        map.put(1,0);
-        map.put(2,0);
-
-        for(int x : arr)
+int left=0; int right= nums.length-1;
+        for(int x=0;x<=right;x++)
         {
-            map.put(x, map.get(x) + 1);
-        }
-        arr.clear();
-        
-            for(int x=0;x<3;x++)
+            if(nums[x]==0)
             {
-                for(int y=0;y<map.get(x);y++)
-                arr.add(x);
+                nums[x]=nums[left];
+                nums[left]=0;
+                left++;
             }
-
+            else if(nums[x]==2)
+            {
+                nums[x]=nums[right];
+                nums[right]=2;
+                right--;
+                x--;
+            }
+        }
         
     }
 }

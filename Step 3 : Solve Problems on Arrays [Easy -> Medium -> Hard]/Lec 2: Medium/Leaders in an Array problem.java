@@ -1,18 +1,17 @@
-// CODESTUDIO 
-import java.util.*;
-public class Solution {
-    public static List< Integer > superiorElements(int []a) {
-        // Write your code here.
-        ArrayList <Integer> ans = new ArrayList<>() ;
-
-        int max=a[a.length-1]-1;
-
-        for (int x=a.length-1;x>=0;x--)
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+        // Your code here
+        ArrayList <Integer> list = new ArrayList();
+        int max=0;
+        for(int x=arr.length-1;x>-1;x--)
         {
-            if(a[x]>max)
-           { ans.add(a[x]);max=a[x];}
-          
+            if(arr[x]>=max)
+            {
+                max=arr[x];
+                list.add(0,max);
+            }
         }
-        return ans;
+        return list;
     }
 }

@@ -1,22 +1,14 @@
-// CODESTUDIO 
-import java.util.* ;
-import java.io.*; 
-
-public class Solution {
-	
-	public static long maxSubarraySum(int[] arr, int n) {
-		// write your code here
-			long s=0,ans=0;
-
-			for(int x=0;x<n;x++)
-			{
-				s+=arr[x];
-				ans=Math.max(ans,s);
-				if(s<0)
-				s=0;
-			}
-			return ans;
-
-	}
-
+class Solution {
+    public int maxSubArray(int[] nums) {
+        
+        int sum=nums[0],max=nums[0];
+        for(int x=1;x<nums.length;x++)
+        {
+            if(sum<0)
+            sum=0;
+            sum+=nums[x];
+            max=Math.max(sum,max);
+        }
+        return max;
+    }
 }

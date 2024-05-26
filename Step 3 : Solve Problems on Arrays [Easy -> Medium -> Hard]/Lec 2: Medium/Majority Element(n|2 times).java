@@ -1,21 +1,15 @@
-// CODESTUDIO 
-import java.util.*;
-public class Solution {
-    public static int majorityElement(int[] v) {
-        int freq = v.length / 2;
-        HashMap<Integer, Integer> mpp = new HashMap<>();
-           for (int num : v) {
-            int value = mpp.getOrDefault(num, 0);
-            mpp.put(num, value + 1);
-        }
-
-       for (Map.Entry<Integer, Integer> it : mpp.entrySet()) {
-            if (it.getValue() > (v.length / 2)) {
-                return it.getKey();
-            }
-        }
-          
+class Solution {
+    public int majorityElement(int[] nums) {
         
-        return -1; 
+        int c=0,d=1;
+        for(int x=1;x<nums.length;x++)
+        {
+            if(d==0)
+            c=x;
+            if(nums[x]==nums[c])
+            d++;
+            else d--;
+        }
+        return nums[c];
     }
 }
