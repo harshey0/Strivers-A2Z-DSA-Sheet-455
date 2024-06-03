@@ -15,6 +15,8 @@ class Solution
                  arr[y-1]=c;
                  
              }
+             else 
+             break;
             
           }
       }
