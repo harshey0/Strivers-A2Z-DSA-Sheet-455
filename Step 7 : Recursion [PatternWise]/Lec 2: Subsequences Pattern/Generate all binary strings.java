@@ -1,14 +1,14 @@
+import java.util.*;
 public class Solution {
     public static void generate(int N , String S ,List<String> list) {
        // Write your code here.
-       if(S.length()>=2 && S.charAt(S.length()-1)=='1' && S.charAt(S.length()-2)=='1')
-       return ;
        if(N==0)
        {
            list.add(S);
            return;
        }
        generate(N-1,S+"0",list);
+       if(S.length()==0 || S.charAt(S.length()-1)=='0')
        generate(N-1,S+"1",list);
    }
 
