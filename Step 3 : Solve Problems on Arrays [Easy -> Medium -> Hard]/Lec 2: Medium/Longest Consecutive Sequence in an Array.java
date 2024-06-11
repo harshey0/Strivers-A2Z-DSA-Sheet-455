@@ -1,8 +1,8 @@
-import java.util.*;
-public class Solution {
-    public static int longestSuccessiveElements(int []a) {
-        // Write your code here.
-        int max =0,c=1;
+class Solution {
+    public int longestConsecutive(int[] a) {
+             int max =1,c=1;
+             if(a.length==0)
+             return 0;
         Arrays.sort(a);
         for (int x =1;x<a.length;x++)
         {
