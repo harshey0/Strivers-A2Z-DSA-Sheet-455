@@ -27,9 +27,14 @@ public class Solution {
 //     }
     
 
-//         if(search(n,k,a,index+1,sum+a[i])){
+//         if(search(n,k,a,index+1,sum+a[index])){
 //             return true;
 //     }
+
+//     if(search(n,k,a,index+1,sum)){
+//         return true;
+//     }
+//     return false;
 // }
 
 
