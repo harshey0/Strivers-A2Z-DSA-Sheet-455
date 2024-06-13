@@ -1,18 +1,20 @@
 class GfG {
     
-    public Stack<Integer> s(Stack<Integer> s , int max) {
+    public Stack<Integer> s(Stack<Integer> s , int x) {
     // add code here.
     if(s.size()==0)
-   {s.push(max); return s;}
+   {s.push(x); return s;}
     int c= s.pop();
-    if(max<c)
+    if(x<c)
     {
-        s(s,max);
+        s(s,x);
         s.push(c);
     }
     else
-   { s(s,c);
-    s.push(max);}
+   { 
+    s.push(c);
+    s.push(x);
+   }
     return s;
 }
 
