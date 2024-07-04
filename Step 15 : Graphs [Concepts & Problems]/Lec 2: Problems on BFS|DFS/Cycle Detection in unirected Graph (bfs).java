@@ -30,10 +30,11 @@ class Solution {
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
         Queue <Pair> q = new LinkedList();
+        HashSet<Integer> set = new HashSet();
         for(int x=0;x<V;x++)
         {
-        HashSet<Integer> set = new HashSet();
-        set.add(x);
+            if(set.contains(x))
+            continue;
         q.add(new Pair(x,x));
         if(bfs(adj,set , q))
         return true;
