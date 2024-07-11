@@ -1,45 +1,19 @@
-
 public class Solution {
     public static boolean isSubsetPresent(int n, int k,int []a) {
         // Write your code here
-        for(long x=0;x<(1<<n);x++)
+        int dp[][]=new int [n+1][k+1];
+        for(int i=1;i<=n;i++)
         {
-            int s=0;long p=x;int c=n-1;
-            while(p>0)
-            {
-                s+=a[c]*(p&1);
-                c--;p=p>>1;
-            }
-            if(s==k)
-            return true;
+        for(int j=1;j<=k;j++)
+        {
+          if(a[i-1]<=j)
+          {
+              dp[i][j]=Math.max(a[i-1]+dp[i-1][j-a[i-1]],dp[i-1][j]);
+          }
+          else
+          dp[i][j]=dp[i-1][j];
         }
-        return false;
+        }
+        return dp[n][k]==k;
     }
 }
-
-// bool search(int n, int k, vector<int> &a, int index,  int sum){
-//     if(sum==k){
-//         return true;
-//     }
-    
-//     if(index>=n || sum>k){
-//         return false;
-//     }
-    
-
-//         if(search(n,k,a,index+1,sum+a[index])){
-//             return true;
-//     }
-
-//     if(search(n,k,a,index+1,sum)){
-//         return true;
-//     }
-//     return false;
-// }
-
-
-// bool isSubsetPresent(int n, int k, vector<int> &a)
-// {
-//     return search(n,k,a,0,0);
-    
-// }
