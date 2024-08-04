@@ -1,19 +1,16 @@
 public class Solution {
+    public static boolean check(int n, int k,int []a , int i) {
+        // Write your code here
+        if(k==0)
+        return true;        
+        if(i==n)
+        return false;
+        if(check(n,k-a[i],a,i+1)|| check(n,k,a,i+1))
+        return true;
+        return false;
+    }
     public static boolean isSubsetPresent(int n, int k,int []a) {
         // Write your code here
-        int dp[][]=new int [n+1][k+1];
-        for(int i=1;i<=n;i++)
-        {
-        for(int j=1;j<=k;j++)
-        {
-          if(a[i-1]<=j)
-          {
-              dp[i][j]=Math.max(a[i-1]+dp[i-1][j-a[i-1]],dp[i-1][j]);
-          }
-          else
-          dp[i][j]=dp[i-1][j];
-        }
-        }
-        return dp[n][k]==k;
+        return check(n,k,a,0);
     }
 }

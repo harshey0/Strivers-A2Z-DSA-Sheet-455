@@ -1,22 +1,16 @@
-class Solution{
-    private static int mod =1000000007;
-        public int perfectSum(int arr[],int n, int sum) 
-        { 
-            // Your code goes here
-             int dp[][]= new int [n+1][sum+1];
-            for(int x=0;x<=n;x++)
-            dp[x][0]=1;
-            for(int i=1;i<=n;i++)
-            {
-                for(int j=0;j<=sum;j++)
-                {
-                    if(arr[i-1]<=j)
-                        dp[i][j]=(dp[i-1][j]+dp[i-1][j-arr[i-1]])%mod;
-                    else
-                    dp[i][j]=dp[i-1][j]%mod;
-                }
-            }
-            return dp[n][sum];
-            
-        } 
+public class Solution {
+    public static boolean check(int n, int k,int []a , int i) {
+        // Write your code here
+        if(k==0)
+        return true;        
+        if(i==n)
+        return false;
+        if(check(n,k-a[i],a,i+1)|| check(n,k,a,i+1))
+        return true;
+        return false;
     }
+    public static boolean isSubsetPresent(int n, int k,int []a) {
+        // Write your code here
+        return check(n,k,a,0);
+    }
+}
